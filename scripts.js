@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('job-form');
     const jobList = document.getElementById('job-list');
+    const searchForm = document.getElementById('search-form');
+    const searchResults = document.getElementById('search-results');
 
     if (form) {
         handleJobForm(form);
     } else if (jobList) {
         displayJobList(jobList);
+    } else if (searchForm) {
+        handleSearchForm(searchForm, searchResults);
     }
     
     console.log('Script cargado.');  // Comprobar si el script se carga
@@ -51,5 +55,38 @@ function displayJobList(jobList) {
             <p>${job.description}</p>
         `;
         jobList.appendChild(jobItem);
+    });
+}
+
+function handleSearchForm(searchForm, searchResults) {
+    console.log('Formulario de búsqueda encontrado.');  // Comprobar si el formulario de búsqueda se encuentra
+    
+    searchForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const searchTitle = searchForm['search-title'].value.toLowerCase();
+        console.log('Búsqueda enviada:', searchTitle);  // Comprobar los datos de la búsqueda
+
+        // Limpiar resultados anteriores
+        searchResults.innerHTML = '';
+
+        // Cargar las ofertas de trabajo desde el almacenamiento local
+        const jobs = JSON.parse(localStorage.getItem('jobs')) || [];
+        const filteredJobs = jobs.filter(job => job.title.toLowerCase().includes(searchTitle));
+
+        if (filteredJobs.length > 0) {
+            filteredJobs.forEach(job => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'job-item';
+                jobItem.innerHTML = `
+                    <h3>${job.title}</h3>
+                    <p><strong>Empresa:</strong> ${job.company}</p>
+                    <p><strong>Ubicación:</strong> ${job.location}</p>
+                    <p>${job.description}</p>
+                `;
+                searchResults.appendChild(jobItem);
+            });
+        } else {
+            searchResults.innerHTML = '<p>No se encontraron trabajos con ese título.</p>';
+        }
     });
 }
