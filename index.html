@@ -10,33 +10,31 @@
 <body>
     <header>
         <a href="index.html"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
-        <h1>Buscador de Trabajo</h1>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="post-job.html">Publicar Oferta</a>
-            <a href="search.html">Buscar Trabajo</a>
+            <a href="buscar_ofertas.php">Empleos</a>
+            <a href="publicar_oferta.php">Publicar Oferta</a>
+            <a href="buscador.php">Buscardor</a>
             <a href="calculadora.html">Cotizar</a>
         </nav>
     </header>
     <main>
-        <h2>Ofertas de Trabajo</h2>
-            <?php
-            include 'buscar_ofertas.php';
+        <h4>Bienvenidos a Agarra la pala</h4>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h5>¿Estás buscando tu próxima oportunidad laboral? En Agarra la pala queremos ayudarte a dar el primer paso. Nuestra plataforma conecta a personas que buscan trabajo con empresas y proyectos que necesitan talento. Aquí, creemos en el valor del esfuerzo y en la oportunidad de construir un camino sólido hacia el éxito profesional.<br>
+
+            Explora una amplia gama de ofertas en distintos rubros, desde tecnología y servicios hasta industrias creativas y técnicas. Ya seas un profesional en búsqueda de crecimiento o alguien que quiere empezar en un nuevo sector, Agarra la pala tiene algo para ti.<br>
             
-            // Mostrar las ofertas
-            if (empty($ofertas)) {
-                echo "<p>No hay ofertas disponibles en este momento.</p>";
-            } else {
-                foreach ($ofertas as $oferta) {
-                    echo "<div class='job-offer'>";
-                    echo "<h3>" . htmlspecialchars($oferta['titulo']) . "</h3>";
-                    echo "<p><strong>Empresa:</strong> " . htmlspecialchars($oferta['empresa']) . "</p>";
-                    echo "<p><strong>Ubicación:</strong> " . htmlspecialchars($oferta['ubicacion']) . "</p>";
-                    echo "<p><strong>Descripción:</strong> " . htmlspecialchars($oferta['descripcion']) . "</p>";
-                    echo "</div>";
-                }
-            }
-            ?>
-    </main>
+            Empieza a construir tu futuro, ¡agarrá la pala y encontrá tu oportunidad ideal!
+            
+            </h5>
 </body>
 </html>
