@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Consultar las ofertas de trabajo
-$sql = "SELECT * FROM ofertaslaborales";
+$sql = "SELECT * FROM ofertaslaborales1";
 $result = $conn->query($sql);
 ?>
 
@@ -29,12 +29,12 @@ $result = $conn->query($sql);
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
+        <a href="index.php"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
         <h1>OFERTAS RECIENTES</h1>
         <nav>
         <a href="buscar_ofertas.php">Empleos</a>
             <a href="publicar_oferta.php">Publicar Oferta</a>
-            <a href="buscador.php">Buscardor</a>
+            <a href="buscador.php">Buscador</a>
             <a href="calculadora.html">Cotizar</a>
         </nav>
     </header>

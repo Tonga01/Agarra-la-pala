@@ -8,12 +8,12 @@
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
+        <a href="index.php"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
         <h1>BUSCAR OFERTAS LABORALES</h1>
         <nav>
-        <a href="buscar_ofertas.php">Empleos</a>
+            <a href="buscar_ofertas.php">Empleos</a>
             <a href="publicar_oferta.php">Publicar Oferta</a>
-            <a href="buscador.php">Buscardor</a>
+            <a href="buscador.php">Buscador</a>
             <a href="calculadora.html">Cotizar</a>
         </nav>
     </header>
@@ -36,15 +36,15 @@
         // Configurar el conjunto de caracteres a utf8mb4
         $conexion->set_charset("utf8mb4");
 
-        // Procesar la búsqueda
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Procesar la búsqueda solo si se envía el formulario y el campo de búsqueda tiene contenido
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['titulo_busqueda'])) {
             $tituloBusqueda = "%" . $_POST['titulo_busqueda'] . "%";
 
             // Imprimir el valor de $tituloBusqueda para confirmar
             echo "<p>Buscando trabajos que contengan el título: " . htmlspecialchars($_POST['titulo_busqueda']) . "</p>";
 
             // Preparar la consulta de búsqueda
-            $consulta = $conexion->prepare("SELECT id, titulo, empresa, ubicacion, descripcion FROM ofertaslaborales WHERE titulo LIKE ?");
+            $consulta = $conexion->prepare("SELECT id, titulo, empresa, ubicacion, descripcion FROM ofertaslaborales1 WHERE titulo LIKE ?");
             if (!$consulta) {
                 die("Error en la preparación de la consulta: " . $conexion->error);
             }

@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 $id = isset($_GET['id']) ? $_GET['id'] : 0;
 
 // Borrar la oferta
-$sql = "DELETE FROM ofertaslaborales WHERE id = ?";
+$sql = "DELETE FROM ofertaslaborales1 WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('i', $id);
 $stmt->execute();

@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descripcion = $conn->real_escape_string($_POST['description']);
 
     // Insertar datos en la base de datos
-    $sql = "INSERT INTO ofertaslaborales (titulo, empresa, ubicacion, descripcion) 
+    $sql = "INSERT INTO ofertaslaborales1 (titulo, empresa, ubicacion, descripcion) 
             VALUES ('$titulo', '$empresa', '$ubicacion', '$descripcion')";
 
     if ($conn->query($sql) === TRUE) {
@@ -47,12 +47,12 @@ $conn->close();
 </head>
 <body>
     <header>
-        <a href="index.html"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
+        <a href="index.php"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
         <h1>PUBLICAR OFERTA LABORAL</h1>
         <nav>
         <a href="buscar_ofertas.php">Empleos</a>
             <a href="publicar_oferta.php">Publicar Oferta</a>
-            <a href="buscador.php">Buscardor</a>
+            <a href="buscador.php">Buscador</a>
             <a href="calculadora.html">Cotizar</a>
         </nav>
     </header>
