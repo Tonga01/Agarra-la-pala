@@ -1,5 +1,5 @@
 .logo {
-    height: 100px; /* Ajusta el tamaño según tus necesidades */
+    height: 100px; 
     margin-right: 20px;
     vertical-align: middle;
 }
@@ -78,4 +78,8 @@ button:hover {
     border-radius: 4px;
     padding: 1em;
     margin-bottom: 1em;
+}
+
+h3 {
+    color: #333;
 }

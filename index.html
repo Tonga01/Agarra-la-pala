@@ -15,14 +15,28 @@
             <a href="index.html">Inicio</a>
             <a href="post-job.html">Publicar Oferta</a>
             <a href="search.html">Buscar Trabajo</a>
+            <a href="calculadora.html">Cotizar</a>
         </nav>
     </header>
     <main>
         <h2>Ofertas de Trabajo</h2>
-        <div id="job-list">
-            <!-- Aquí se mostrarán las ofertas de trabajo -->
-        </div>
+            <?php
+            include 'buscar_ofertas.php';
+            
+            // Mostrar las ofertas
+            if (empty($ofertas)) {
+                echo "<p>No hay ofertas disponibles en este momento.</p>";
+            } else {
+                foreach ($ofertas as $oferta) {
+                    echo "<div class='job-offer'>";
+                    echo "<h3>" . htmlspecialchars($oferta['titulo']) . "</h3>";
+                    echo "<p><strong>Empresa:</strong> " . htmlspecialchars($oferta['empresa']) . "</p>";
+                    echo "<p><strong>Ubicación:</strong> " . htmlspecialchars($oferta['ubicacion']) . "</p>";
+                    echo "<p><strong>Descripción:</strong> " . htmlspecialchars($oferta['descripcion']) . "</p>";
+                    echo "</div>";
+                }
+            }
+            ?>
     </main>
-    <script src="scripts.js"></script>
 </body>
 </html>

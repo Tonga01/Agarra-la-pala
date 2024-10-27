@@ -15,11 +15,12 @@
             <a href="index.html">Inicio</a>
             <a href="post-job.html">Publicar Oferta</a>
             <a href="search.html">Buscar Trabajo</a>
+            <a href="calculadora.html">Cotizar</a>
         </nav>
     </header>
     <main>
         <h2>Formulario de Publicación</h2>
-        <form id="job-form">
+        <form id="job-form" method="POST" action="Basedeofertas.php">
             <label for="title">Título del Trabajo:</label>
             <input type="text" id="title" name="title" required>
             
@@ -35,6 +36,5 @@
             <button type="submit">Publicar</button>
         </form>
     </main>
-    <script src="scripts.js"></script>
 </body>
 </html>
