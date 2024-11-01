@@ -20,15 +20,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $empresa = $conn->real_escape_string($_POST['company']);
     $ubicacion = $conn->real_escape_string($_POST['location']);
     $descripcion = $conn->real_escape_string($_POST['description']);
+    
+    // Validar y sanitizar el campo de salario
+    $salario = (int)$_POST['salary']; // Convertir a entero
+    if ($salario < 20000 || $salario > 20000000) {
+        die("El salario debe estar entre 20000 y 20000000.");
+    }
 
     // Insertar datos en la base de datos
-    $sql = "INSERT INTO ofertaslaborales1 (titulo, empresa, ubicacion, descripcion) 
-            VALUES ('$titulo', '$empresa', '$ubicacion', '$descripcion')";
+    $sql = "INSERT INTO ofertaslaborales1 (titulo, empresa, ubicacion, descripcion, salario) 
+            VALUES ('$titulo', '$empresa', '$ubicacion', '$descripcion', $salario)";
 
     if ($conn->query($sql) === TRUE) {
         echo "La oferta fue publicada exitosamente.";
     } else {
-        echo "Error al publicar la oferta: " . $conn->error; // Muestra el error SQL
+        echo "Error al publicar la oferta: " . $conn->error; 
     }
 }
 
@@ -50,10 +56,10 @@ $conn->close();
         <a href="index.php"><img src="agarralapalalogo.png" alt="Logo de la página" class="logo"></a>
         <h1>PUBLICAR OFERTA LABORAL</h1>
         <nav>
-        <a href="buscar_ofertas.php">Empleos</a>
+            <a href="buscar_ofertas.php">Empleos</a>
             <a href="publicar_oferta.php">Publicar Oferta</a>
             <a href="buscador.php">Buscador</a>
-            <a href="calculadora.html">Cotizar</a>
+            <a href="calculadora.php">Cotizar</a>
         </nav>
     </header>
     <main>
@@ -70,6 +76,9 @@ $conn->close();
             
             <label for="description">Descripción:</label>
             <textarea id="description" name="description" required></textarea>
+            
+            <label for="salary">Salario:</label>
+            <input type="number" id="salary" name="salary" min="20000" max="20000000" required>
             
             <button type="submit">Publicar</button>
         </form>

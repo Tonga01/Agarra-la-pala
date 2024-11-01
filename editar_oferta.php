@@ -22,10 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $empresa = $_POST['empresa'];
     $ubicacion = $_POST['ubicacion'];
     $descripcion = $_POST['descripcion'];
+    $salario = $_POST['salario'];
 
-    $sql = "UPDATE ofertaslaborales1 SET titulo = ?, empresa = ?, ubicacion = ?, descripcion = ? WHERE id = ?";
+    $sql = "UPDATE ofertaslaborales1 SET titulo = ?, empresa = ?, ubicacion = ?, descripcion = ?, salario = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ssssi', $titulo, $empresa, $ubicacion, $descripcion, $id);
+    $stmt->bind_param('ssssii', $titulo, $empresa, $ubicacion, $descripcion, $salario, $id);
     $stmt->execute();
     header('Location: buscador.php'); // Redirigir a la página de búsqueda después de actualizar
     exit(); // Asegurar que no se ejecute más código después de la redirección
@@ -48,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <a href="buscar_ofertas.php">Empleos</a>
             <a href="publicar_oferta.php">Publicar Oferta</a>
             <a href="buscador.php">Buscador</a>
-            <a href="calculadora.html">Cotizar</a>
+            <a href="calculadora.php">Cotizar</a>
         </nav>
     </header>
     <main>
@@ -65,6 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             <label for="descripcion">Descripción:</label>
             <textarea id="descripcion" name="descripcion" required><?= htmlspecialchars($oferta['descripcion']) ?></textarea>
+            
+            <label for="salario">Salario:</label>
+            <input type="number" id="salario" name="salario" value="<?= htmlspecialchars($oferta['salario']) ?>" required min="20000" max="20000000" step="1000">
             
             <button type="submit">Actualizar</button>
         </form>

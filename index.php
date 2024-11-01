@@ -14,7 +14,7 @@
             <a href="buscar_ofertas.php">Empleos</a>
             <a href="publicar_oferta.php">Publicar Oferta</a>
             <a href="buscador.php">Buscador</a>
-            <a href="calculadora.html">Cotizar</a>
+            <a href="calculadora.php">Cotizar</a>
         </nav>
     </header>
     <main>
