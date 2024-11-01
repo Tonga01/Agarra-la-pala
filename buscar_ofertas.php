@@ -103,7 +103,7 @@ $result = $stmt->get_result();
                 if ($i == $paginaActual) {
                     echo "<span class='current-page'>$i</span>";
                 } else {
-                    echo "<a href='?pagina=$i'>$i</a>";
+                    echo "<a href='?pagina=$i '>$i </a>";
                 }
             }
 
