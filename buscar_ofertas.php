@@ -95,7 +95,7 @@ $result = $stmt->get_result();
 
             // Botón "Página anterior"
             if ($paginaActual > 1) {
-                echo "<a href='?pagina=" . ($paginaActual - 1) . "'>&laquo; Página Anterior</a>";
+                echo "<a href='?pagina=" . ($paginaActual - 1) . "'>&laquo; Página Anterior  </a>";
             }
 
             // Números de página
@@ -109,7 +109,7 @@ $result = $stmt->get_result();
 
             // Botón "Página siguiente"
             if ($paginaActual < $totalPaginas) {
-                echo "<a href='?pagina=" . ($paginaActual + 1) . "'>Página Siguiente &raquo;</a>";
+                echo "<a href='?pagina=" . ($paginaActual + 1) . "'>  Página Siguiente &raquo;</a>";
             }
             ?>
         </div>
