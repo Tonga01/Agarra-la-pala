@@ -109,7 +109,7 @@ $result = $stmt->get_result();
 
             // Botón "Página siguiente"
             if ($paginaActual < $totalPaginas) {
-                echo "<a href='?pagina=" . ($paginaActual + 1) . "'>  Página Siguiente &raquo;</a>";
+                echo "<a href='?pagina=" . ($paginaActual + 1 ) . "'>  Página Siguiente &raquo;</a>";
             }
             ?>
         </div>
