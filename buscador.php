@@ -6,9 +6,53 @@
     <title>Buscar Ofertas por Título</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Oculta la sección de salario inicialmente */
         .salario-section {
             display: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 97%;
+            margin: 0;
+            height: auto;
+        }
+
+        label {
+            margin-bottom: 5px; /* Margen entre el label y el input */
+        }
+
+        input[type="text"],
+        input[type="range"],
+        button {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+            margin-bottom: 15px; /* Margen entre inputs */
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ajustar el campo de salario para mayor ancho */
+        #salario-section {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -37,19 +81,21 @@
             <label>
                 <input type="checkbox" id="filtrar_salario" onclick="toggleSalario()"> Filtrar por salario
             </label>
+<div id="salario-section" class="salario-section">
+    <div style="margin-bottom: 20px;">
+        <label for="salario_min">Salario mínimo:</label>
+        <output id="salario_min_output" style="display: block; margin-bottom: 5px;">20000</output>
+        <input type="range" id="salario_min" name="salario_min" min="20000" max="20000000" step="1000" value="20000" 
+               oninput="ajustarSalarioMin()" style="width: 100%;">
+    </div>
 
-            <!-- Sección de salario (oculta inicialmente) -->
-            <div id="salario-section" class="salario-section">
-                <label for="salario_min">Salario mínimo:</label>
-                <input type="range" id="salario_min" name="salario_min" min="20000" max="20000000" step="1000" value="20000" 
-                       oninput="ajustarSalarioMin()">
-                <output id="salario_min_output">20000</output>
-
-                <label for="salario_max">Salario máximo:</label>
-                <input type="range" id="salario_max" name="salario_max" min="20000" max="20000000" step="1000" value="20000000" 
-                       oninput="ajustarSalarioMax()">
-                <output id="salario_max_output">20000000</output>
-            </div>
+    <div>
+        <label for="salario_max">Salario máximo:</label>
+        <output id="salario_max_output" style="display: block; margin-bottom: 5px;">20000000</output>
+        <input type="range" id="salario_max" name="salario_max" min="20000" max="20000000" step="1000" value="20000000" 
+               oninput="ajustarSalarioMax()" style="width: 100%;">
+    </div>
+</div>
 
             <button type="submit">Buscar empleos</button>
         </form>

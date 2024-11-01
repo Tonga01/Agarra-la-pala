@@ -101,7 +101,7 @@ $result = $stmt->get_result();
             // Números de página
             for ($i = $inicioPagina; $i <= $finPagina; $i++) {
                 if ($i == $paginaActual) {
-                    echo "<span class='current-page'>$i</span>";
+                    echo "<span class='current-page'>$i </span>";
                 } else {
                     echo "<a href='?pagina=$i '>$i </a>";
                 }
@@ -109,7 +109,7 @@ $result = $stmt->get_result();
 
             // Botón "Página siguiente"
             if ($paginaActual < $totalPaginas) {
-                echo "<a href='?pagina=" . ($paginaActual + 1 ) . "'>  Página Siguiente &raquo;</a>";
+                echo "<a href='?pagina=" . ($paginaActual + 1) . "'>  Página Siguiente &raquo;</a>";
             }
             ?>
         </div>

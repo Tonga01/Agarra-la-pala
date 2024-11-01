@@ -40,6 +40,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Oferta de Trabajo</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        main {
+            padding: 20px;
+            font-size: 1em;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; 
+            margin: auto;
+            font-size: 1em;
+        }
+
+        form label,
+        form input,
+        form textarea,
+        form button {
+            width: 100%;
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        form input,
+        form textarea {
+            padding: 8px;
+            font-size: 1em;
+        }
+
+        form textarea {
+            height: 120px;
+            font-size: 125%;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <header>
